@@ -15,10 +15,9 @@
         </div>
       </div>
     </section>
-    <section class="w-full flex items-center justify-start">
-      <div>
-        <img src="~/assets/icons/grid.svg" />
-      </div>
+    <section class="w-full flex items-center justify-bettwen">
+      <img src="~/assets/icons/search.svg" />
+      <input type="text" placeholder="搜尋" />
     </section>
     <section class="w-full flex items-center justify-end ">
       <nuxt-link to="">我想開課</nuxt-link>
