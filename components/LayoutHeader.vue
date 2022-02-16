@@ -24,15 +24,15 @@
         <img src="~/assets/icons/cart.svg" />
       </div>
       <div class="flex lg:hidden">
-        <div v-if="menuOpen" @click="toggleMenu()">
+        <div v-if="menuOpen" @click="toggleMenu">
           <img src="~/assets/icons/close.svg" />
         </div>
-        <div v-else @click="toggleMenu()">
+        <div v-else @click="toggleMenu">
           <img src="~/assets/icons/menu.svg" />
         </div>
       </div>
       <div class="hidden md:flex">
-        <nuxt-link to="">登入</nuxt-link>
+        <div @click="$emit('login-modal-open')">登入</div>
         <nuxt-link to="">註冊</nuxt-link>
       </div>
     </section>
