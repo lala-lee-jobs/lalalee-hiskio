@@ -1,11 +1,18 @@
 <template>
   <div class="container mx-auto">
     <layout-header 
-      @mobile-menu-open="mobileMenuOpen = $event " 
-      @login-modal-open="loginModalOpen = true "/>
+      @mobile-menu-open="mobileMenuOpen = $event" 
+      @login-modal-open="loginModalOpen = true"
+    />
     <nuxt />
-    <mobile-menu :open="mobileMenuOpen"/>
-    <login-modal :open="loginModalOpen" @login-modal-close="loginModalOpen=false" />
+    <mobile-menu 
+      :open="mobileMenuOpen" 
+      @login-modal-open="loginModalOpen = true"
+    />
+    <login-modal 
+      :open="loginModalOpen" 
+      @login-modal-close="loginModalOpen = false" 
+    />
   </div>
 </template>
 <script>

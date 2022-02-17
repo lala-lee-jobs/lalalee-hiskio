@@ -3,7 +3,7 @@
     <ul class="p-3">
       <li>探索課程</li>
       <li>企業方案</li>
-      <li>登入</li>
+      <li @click="$emit('login-modal-open')">登入</li>
       <li>註冊</li>
     </ul>  
   </div>
