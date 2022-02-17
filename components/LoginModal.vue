@@ -5,16 +5,28 @@
         <div class="absolute top-0 right-0" @click="$emit('login-modal-close')">
           <img src="~/assets/icons/close.svg" />
         </div>
+        <button @click="loginHandler">登入</button>
       </div>
   </div>
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex';
+
 export default {
   props: {
     open: {
       type: Boolean,
       default: false,
+    },
+  },
+  methods: {
+    ...mapActions('Member', [
+      'login',
+    ]),
+    loginHandler() {
+      this.login();
+      this.$emit('login-modal-close');
     },
   },
 }

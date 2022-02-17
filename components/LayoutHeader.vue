@@ -20,6 +20,9 @@
       <div class="hidden md:flex">
         <nuxt-link to="">我想開課</nuxt-link>
       </div>
+      <div v-if="vxLoggedIn">
+        <nuxt-link to="">我的學習</nuxt-link>
+      </div>
       <div>
         <img src="~/assets/icons/cart.svg" />
       </div>
@@ -31,20 +34,27 @@
           <img src="~/assets/icons/menu.svg" />
         </div>
       </div>
-      <div class="hidden md:flex">
+      <div v-if="!vxLoggedIn" class="hidden md:flex">
         <div @click="$emit('login-modal-open')">登入</div>
         <nuxt-link to="">註冊</nuxt-link>
+      </div>
+      <div v-else>
+        登出
       </div>
     </section>
   </header>
 </template>
 <script>
+import { mapState } from 'vuex';
 export default {
   name: 'LayoutHeader',
   data() {
     return {
       menuOpen: false,
     };
+  },
+  computed: {
+    ...mapState('Member', { vxLoggedIn: 'loggedIn' }),
   },
   methods: {
     toggleMenu() {
