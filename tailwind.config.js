@@ -1,6 +1,6 @@
 module.exports = {
   plugins: [],
-  content: [
+  purge: [
     `components/**/*.{vue,js}`,
     `layouts/**/*.vue`,
     `pages/**/*.vue`,
@@ -8,6 +8,7 @@ module.exports = {
     `nuxt.config.{js,ts}`
   ],
   theme: {
+    // extend 會繼承預設值，並新增變數或覆蓋舊有變數
     extend: {
       margin: {
         '10%': '10%',
