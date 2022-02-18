@@ -1,4 +1,3 @@
 export default () => ({
-  loggedIn: false,
-  profiles: null,
+  memberData: undefined,
 });

@@ -4,8 +4,12 @@ import { BaseConfig } from '@/api/config';
 export default () => {
   const $axios = axios.create(BaseConfig);
   return {
-    getMe(credentials) {
-      return $axios.get(`/me`, credentials);
+    getMe(memberToken) {
+      return $axios.get(`/me`, {
+        headers: {
+          Authorization: `Bearer ${memberToken.access_token}`
+        },
+      });
     },
-  };
+  }
 };

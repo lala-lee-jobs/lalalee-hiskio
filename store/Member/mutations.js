@@ -1,5 +1,5 @@
 export default {
-  loginSuccess(state ) {
-    state.loggedIn = true;
+  loginSuccess(state, payload) {
+    state.memberData = payload;
   }
 };

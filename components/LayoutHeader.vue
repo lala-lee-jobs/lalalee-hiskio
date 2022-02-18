@@ -20,7 +20,7 @@
       <div class="hidden md:flex">
         <nuxt-link to="">我想開課</nuxt-link>
       </div>
-      <div v-if="vxLoggedIn">
+      <div v-if="vxMemberData">
         <nuxt-link to="">我的學習</nuxt-link>
       </div>
       <div>
@@ -34,12 +34,14 @@
           <img src="~/assets/icons/menu.svg" />
         </div>
       </div>
-      <div v-if="!vxLoggedIn" class="hidden md:flex">
-        <div @click="$emit('login-modal-open')">登入</div>
-        <nuxt-link to="">註冊</nuxt-link>
-      </div>
-      <div v-else>
-        登出
+      <div class="hidden md:flex">
+        <template v-if="!vxMemberData" >
+          <div @click="$emit('login-modal-open')">登入</div>
+          <nuxt-link to="">註冊</nuxt-link>
+        </template>
+        <template v-else>
+          <img width="32" :src="vxMemberData.avatar" />
+        </template>
       </div>
     </section>
   </header>
@@ -54,7 +56,7 @@ export default {
     };
   },
   computed: {
-    ...mapState('Member', { vxLoggedIn: 'loggedIn' }),
+    ...mapState('Member', { vxMemberData: 'memberData' }),
   },
   methods: {
     toggleMenu() {
