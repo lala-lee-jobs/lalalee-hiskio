@@ -1,12 +1,14 @@
 <template>
   <div>
-    This is index
+    <section>
+      <course-list fundraising/>
+    </section>
   </div>
 </template>
 
 <script>
 export default {
   name: 'IndexPage',
-  layout: 'blog',
+  layout: 'default',
 }
 </script>
