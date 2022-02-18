@@ -44,6 +44,8 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt
+    'cookie-universal-nuxt',
   ],
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
