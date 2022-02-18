@@ -7,4 +7,4 @@ const mock = new MockAdapter(axios, {
   delayResponse: 500,
 });
 
-mock.onGet('/fundraising').reply(200, getFundraising);
+mock.onGet('/courses/fundraising').reply(200, getFundraising);
