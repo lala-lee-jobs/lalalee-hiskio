@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto">
+  <div>
     <layout-header 
       @mobile-menu-open="mobileMenuOpen = $event" 
       @login-modal-open="loginModalOpen = true"
@@ -8,6 +8,7 @@
     <mobile-menu 
       :open="mobileMenuOpen" 
       @login-modal-open="loginModalOpen = true"
+      @logout="logoutHandler"
     />
     <login-modal 
       :open="loginModalOpen" 
@@ -25,6 +26,10 @@ export default {
     }
   },
   methods: {
+    logoutHandler() {
+      console.log('logoutHandler');
+      this.mobileMenuOpen = false;
+    }
   },  
 }
 </script>

@@ -22,10 +22,10 @@ export default {
   },
   methods: {
     ...mapActions('Member', [
-      'login',
+      'vxLogin',
     ]),
     loginHandler() {
-      this.login();
+      this.vxLogin();
       this.$emit('login-modal-close');
     },
   },
