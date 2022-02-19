@@ -3,20 +3,15 @@
     <div v-if="fundraising">
       <div class="text-2xl">募資課程</div>
       <ul class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:gap-4">
-      <template v-for="course in vxFundraising">
-        <li :key="course.id" class="border">
-          <div>
-            <img :src="course.image">
-          </div>
-          <div>
-            <h3>{{course.title}}</h3>
-            <div v-if="lecturer(course)" class="flex">
-              <img width="32" :src="lecturer(course).avatar" />
-              <span>{{lecturer(course).username}}</span>
-            </div>
-          </div>
-        </li>
-      </template>
+        <template  v-for="course in vxFundraising">
+          <course-item
+            :key="course.id" 
+            :lecturer="lecturer(course)"
+            :image="course.image"
+            :title="course.title"
+          >
+          </course-item>
+        </template>
       </ul>
     </div>
   </div>
@@ -38,6 +33,6 @@ export default {
         return null;
       };
     },
-  },
+  }
 }
 </script>
