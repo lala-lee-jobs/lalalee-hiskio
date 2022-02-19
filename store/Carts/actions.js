@@ -1,10 +1,12 @@
 export default {
-  async vxAddCourse({commit}, {id, coupon}) {
+  async vxRemoveItemInCart({commit}, id) {
+  },
+  async vxAddCourse({ commit, rootGetters }, {id, coupon}) {
     try {
-      const memberToken = this.$cookies.get('memberToken');
       let existCarts = [];
-      if (memberToken) {
-        const {data: existCartsInfo} = await this.$CartsAPI.listMemberCarts(memberToken);
+      const vxLoggedIn = rootGetters['Member/vxLoggedIn'];
+      if (vxLoggedIn) {
+        const {data: existCartsInfo} = await this.$CartsAPI.listMemberCarts();
         existCarts = existCartsInfo.data.map(({id, coupon}) => ({id, coupon: ''}));
       }
       const newCarts = [{id, coupon: ''}, ...existCarts];
