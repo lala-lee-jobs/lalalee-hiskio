@@ -1,6 +1,6 @@
 <template>
   <div v-if="open" class="fixed w-full h-screen top-5 bg-white">
-    <div v-if="vxMemberData">
+    <div v-if="vxLoggedIn">
       <img width="32" :src="vxMemberData.avatar" />
       <span>{{vxMemberData.username}}</span>
     </div>
@@ -16,7 +16,7 @@
   </div>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 export default {
   props: {
     open: {
@@ -26,6 +26,7 @@ export default {
   },
   computed: {
     ...mapState('Member', { vxMemberData: 'memberData' }),
+    ...mapGetters('Member', ['vxLoggedIn']),
   },
 };
 </script>

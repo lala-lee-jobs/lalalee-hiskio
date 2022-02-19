@@ -20,7 +20,7 @@
       <div class="hidden md:flex">
         <nuxt-link to="">我想開課</nuxt-link>
       </div>
-      <div v-if="vxMemberData">
+      <div v-if="vxLoggedIn">
         <nuxt-link to="">我的學習</nuxt-link>
       </div>
       <div>
@@ -35,7 +35,7 @@
         </div>
       </div>
       <div class="hidden md:flex">
-        <template v-if="!vxMemberData" >
+        <template v-if="!vxLoggedIn" >
           <div @click="$emit('login-modal-open')">登入</div>
           <nuxt-link to="">註冊</nuxt-link>
         </template>
@@ -47,7 +47,7 @@
   </header>
 </template>
 <script>
-import { mapState } from 'vuex';
+import { mapState, mapGetters } from 'vuex';
 export default {
   name: 'LayoutHeader',
   data() {
@@ -57,6 +57,7 @@ export default {
   },
   computed: {
     ...mapState('Member', { vxMemberData: 'memberData' }),
+    ...mapGetters('Member', ['vxLoggedIn']),
   },
   methods: {
     toggleMenu() {
