@@ -9,12 +9,12 @@ export default () => {
   const $axios = axios.create(BaseConfig);
   $axios.interceptors.request.use(appendMemberTokenHeader,RequestErrorHandler);
   return {
-    listMemberCarts(memberToken) {
+    listMemberCarts() {
       return $axios.post(`/carts`, {items:[], coupons: []});
     },
-    // saveCarts({items, coupons}) {
-    //   return $axios.post(`/carts`, {items, coupons});
-    // },
+    saveCarts({items, coupons}) {
+      return $axios.post(`/carts`, {items, coupons});
+    },
     deleteCarts(carts) {
       return $axios.delete(`/carts`, carts);
     },

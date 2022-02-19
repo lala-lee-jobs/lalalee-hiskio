@@ -3,7 +3,7 @@ import createPersistedState from 'vuex-persistedstate';
 export default ({ store }, inject) => {
   const localStoragePaths = [];
   const sessionStoragePaths = [
-    'Member'
+    'Member', 'Carts'
   ];
 
   window.onNuxtReady(() => {

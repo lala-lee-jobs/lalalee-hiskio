@@ -38,7 +38,7 @@ export default {
     ]),
     addCourseInCart() {
       const {id, coupon} = this.$attrs;
-      this.vxAddCourse({id: id.toString(), coupon});
+      this.vxAddCourse({id, coupon});
     },
   },
 }
