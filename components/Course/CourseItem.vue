@@ -4,7 +4,7 @@
       <img :src="image">
     </div>
     <ul class="w-full flex justify-end">
-      <li>加入購物車</li>
+      <li @click="addCourseInCart">加入購物車</li>
     </ul>
     <div>
       <h3>{{title}}</h3>
@@ -14,7 +14,8 @@
   </li>
 </template>
 <script>
-import CourseLecturer from './CourseLecturer.vue'
+import { mapActions } from 'vuex';
+import CourseLecturer from './CourseLecturer.vue';
 export default {
   components: { CourseLecturer },
   props: {
@@ -30,6 +31,15 @@ export default {
       type: Object,
       default: () => {},      
     }
+  },
+  methods: {
+    ...mapActions('Carts', [
+      'vxAddCourse',
+    ]),
+    addCourseInCart() {
+      const {id, coupon} = this.$attrs;
+      this.vxAddCourse({id: id.toString(), coupon});
+    },
   },
 }
 </script>

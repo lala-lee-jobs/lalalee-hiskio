@@ -7,8 +7,7 @@
           <course-item
             :key="course.id" 
             :lecturer="lecturer(course)"
-            :image="course.image"
-            :title="course.title"
+            v-bind="course"
           >
           </course-item>
         </template>
