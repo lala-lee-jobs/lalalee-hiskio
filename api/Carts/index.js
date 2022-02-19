@@ -15,8 +15,8 @@ export default () => {
     saveCarts({items, coupons}) {
       return $axios.post(`/carts`, {items, coupons});
     },
-    deleteCarts(carts) {
-      return $axios.delete(`/carts`, carts);
+    deleteCarts({items, coupons}) {
+      return $axios.delete(`/carts`,  {items, coupons});
     },
   };
 };
