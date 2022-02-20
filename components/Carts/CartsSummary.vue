@@ -16,11 +16,11 @@
       <div class="flex justify-between mt-5 mb-4 pt-5 border-t-[1px] border-gray-400">
         <div class="flex-shrink-0 text-gray-600">金額</div>
         <div class="text-gray-700">
-          <span class="text-sm">$10,800</span>  
+          <span class="text-sm">{{$currency(vxSubtotal)}}</span>  
         </div>
       </div>
       <div class="mb-5 text-right text-[32px] text-gray-900 font-medium">
-        <span class="text-28px leading-8">$</span>9,860
+        <span class="text-28px leading-8">{{$currency(vxTotal)}}</span>
       </div>
       <button class="block mb-3 w-full h-10 bg-red-500 text-white rounded">前往結帳</button>
       <p class="text-xs leading-5 text-gray-600">

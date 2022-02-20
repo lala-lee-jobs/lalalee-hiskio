@@ -13,10 +13,12 @@
     <login-modal 
       :open="loginModalOpen" 
       @login-modal-close="loginModalOpen = false" 
+      @login-success="loginSuccessHandler"
     />
   </div>
 </template>
 <script>
+import { mapActions } from 'vuex';
 export default {
   name: 'LayoutDefault',
   data() {
@@ -26,9 +28,16 @@ export default {
     }
   },
   methods: {
+    ...mapActions('Carts', [
+      'vxGetExistCarts'
+    ]),
     logoutHandler() {
       console.log('logoutHandler');
       this.mobileMenuOpen = false;
+    },
+    async loginSuccessHandler() {
+      this.loginModalOpen = false;
+      await this.vxGetExistCarts();
     }
   },  
 }

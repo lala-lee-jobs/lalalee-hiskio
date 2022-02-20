@@ -20,9 +20,11 @@ export default {
       return !isEmpty(this.vxCartsItems);
     },
   },
-  async mounted() {
-    const data = await this.vxGetExistCarts();
-    console.log('mounted', data);
+  mounted() {
+    this.$vuexMountedReady(async () => {
+      const data = await this.vxGetExistCarts();
+      console.log('mounted', data);
+    });
   },
   methods: {
     ...mapActions('Carts', [

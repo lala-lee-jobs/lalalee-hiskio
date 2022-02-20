@@ -17,4 +17,15 @@ export default ({ store }, inject) => {
       storage: window.sessionStorage,
     })(store);
   });
+
+  const vuexMountedReady = (cb) => {
+    if (typeof cb === 'function') {
+      setTimeout(cb, 0);
+    } else {
+      // eslint-disable-next-line no-console
+      console.log('vuexMountedReady plugin must pass function type');
+    }
+  };
+
+  inject('vuexMountedReady', vuexMountedReady);
 };

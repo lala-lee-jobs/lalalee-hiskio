@@ -19,6 +19,7 @@ export default {
     const vxLoggedIn = rootGetters['Member/vxLoggedIn'];
     if (vxLoggedIn) {
       const {data: existCartsInfo} = await this.$CartsAPI.listMemberCarts();
+      // FIXME: 傳入items空陣列帶回的subtotal及total為0
       commit('setExistCartsInfo', existCartsInfo);
       existCarts = existCartsInfo.data.map(({id, coupon}) => ({id, coupon: ''}));
     } else {

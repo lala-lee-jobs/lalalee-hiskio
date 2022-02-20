@@ -67,9 +67,9 @@ export default {
   },
   methods: {
     ...mapActions('Member', ['vxLogin']),
-    loginHandler() {
-      this.vxLogin(this.loginForm);
-      this.$emit('login-modal-close');
+    async loginHandler() {
+      await this.vxLogin(this.loginForm);
+      this.$emit('login-success');
     },
   },
 };
