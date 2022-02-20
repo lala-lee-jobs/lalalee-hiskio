@@ -1,30 +1,42 @@
 <template>
   <header class="fixed top-0 z-10 w-full bg-white h-50px">
-    <div class="relative flex items-center justify-between h-full lg:mx-6 xl:mx-auto xl:max-w-7xl">
-      <section class="w-full flex items-center justify-start ">
-        <div>
-          <img src="~/assets/icons/logo.svg" />
-        </div>
-        <div class="hidden lg:flex">
-          <div>
+    <div class="relative flex items-center justify-between h-full mx-[15px] lg:mx-6 xl:mx-auto xl:max-w-7xl">
+      <section class="flex items-center justify-start flex-grow h-full">
+        <a 
+          class="block w-[66px] h-full bg-contain bg-center bg-no-repeat overflow-hidden whitespace-nowrap mr-[6px]"
+          :style="{
+            'background-image':
+              'url(' +
+              require('~/assets/icons/logo.svg') +
+              ')',
+          }"
+        />
+        <div class="hidden lg:flex items-center">
+          <a class="mr-[20px]">
             <img src="~/assets/icons/hire.svg" />
-          </div>
+          </a>
           <div class="w-full flex items-center justify-around">
             <img src="~/assets/icons/grid.svg" />
             <p>課程</p>
           </div>
         </div>
+        <search />
       </section>
-      <search />
-      <section class="w-full flex items-center justify-end ">
-        <div class="hidden lg:flex">
-          <nuxt-link to="">我想開課</nuxt-link>
-        </div>
-        <div v-if="vxLoggedIn">
-          <nuxt-link to="">我的學習</nuxt-link>
-        </div>
-        <div>
-          <img src="~/assets/icons/cart.svg" />
+      <section class="flex items-center justify-end ">
+        <ul class="hidden lg:flex">
+          <li class="px-[8px]">我想開課</li>
+          <li v-if="vxLoggedIn" class="px-[8px]">我的學習</li>
+        </ul>
+        <div class="flex items-center justify-end h-full">
+          <button
+            class="bg-center bg-no-repeat text-lg w-40px h-40px"
+            :style="{
+              'background-image':
+                'url(' +
+                require('~/assets/icons/cart.svg') +
+                ')',
+            }"
+          />
         </div>
         <div class="flex lg:hidden">
           <div v-if="menuOpen" @click="toggleMenu">
@@ -36,8 +48,11 @@
         </div>
         <div class="hidden lg:flex">
           <template v-if="!vxLoggedIn" >
-            <div @click="$emit('login-modal-open')">登入</div>
-            <nuxt-link to="">註冊</nuxt-link>
+            <button 
+              class="flex items-center justify-center w-16 h-8 text-sm border-solid border border-blue-400 text-blue-400 mx-[8px] rounded-[4px]" 
+              @click="$emit('login-modal-open')">登入</button>
+            <button 
+              class="flex items-center justify-center w-16 h-8 text-sm border-solid border bg-blue-400 text-white mx-[8px] rounded-[4px]">註冊</button>
           </template>
           <template v-else>
             <img width="32" :src="vxMemberData.avatar" />

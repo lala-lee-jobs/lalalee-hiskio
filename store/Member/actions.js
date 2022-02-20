@@ -1,7 +1,7 @@
 export default {
-  async vxLogin({commit}) {
+  async vxLogin({commit}, {account, password, confirm}) {
     try {
-      const { data : memberToken } = await this.$AuthAPI.login({account: 'starluxairlines', password: 'starluxairlines', confirm: true});
+      const { data : memberToken } = await this.$AuthAPI.login({account, password, confirm});
       this.$cookies.set('memberToken', memberToken);
       const { data: memberData } = await this.$MemberAPI.getMe(memberToken);
       commit('loginSuccess', memberData);        
