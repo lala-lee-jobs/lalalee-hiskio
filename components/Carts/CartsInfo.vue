@@ -9,13 +9,18 @@
 </template>
 
 <script>
-import { mapState, mapActions } from 'vuex';
+import { mapGetters, mapActions } from 'vuex';
 import CartsSummary from './CartsSummary.vue';
 import CartList from './CartList.vue';
 export default {
   components: { CartList, CartsSummary },
   computed: {
-    ...mapState('Carts', { vxCartsItems: 'items' }),
+    ...mapGetters('Carts', ['vxCartsItems']),
+  },
+  watch: {
+    async vxCartsItems() {
+      await this.vxGetExistCarts();
+    },
   },
   async mounted() {
     console.log('mounted');

@@ -24,6 +24,7 @@ export default {
   plugins: [
     '@/plugins/axios.js',
     // '@/plugins/axios-mock-adapter.js',
+    { src: '@/plugins/utils.js'},
     { src: '@/plugins/createPersistedState.js', ssr: false }
   ],
 
@@ -42,6 +43,7 @@ export default {
   },
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
+    '@nuxtjs/i18n',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt
@@ -52,6 +54,7 @@ export default {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
   },
+  
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 };

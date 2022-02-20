@@ -11,7 +11,7 @@
       <li>探索課程</li>
       <li>企業方案</li>
     </ul>  
-    <ul class="p-3">
+    <ul v-if="!vxLoggedIn" class="p-3">
       <li @click="$emit('login-modal-open')">登入</li>
       <li>註冊</li>
     </ul>
