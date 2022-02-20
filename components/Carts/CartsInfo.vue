@@ -1,7 +1,7 @@
 <template>
   <div v-if="hasCartItems" class="mx-auto max-w-[1170px] p-15px">
     <div class="flex flex-wrap justify-between">
-      <carts-items :carts="vxCartsItems" class="w-full lg:w-2/3"/>
+      <carts-items :carts="vxCartsItems" class="w-full lg:w-2/3 mb-5"/>
       <carts-summary class="w-full lg:w-1/3"/>
     </div>
   </div>

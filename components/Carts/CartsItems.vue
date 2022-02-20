@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text-2xl">購物車</div>
+    <h2 class="mb-5 text-2xl">購物車</h2>
     <div class="grid grid-cols-12 gap-y-3 ">
       <div class="hidden lg:flex lg:justify-start lg:col-span-6">項目</div>
       <div class="hidden lg:flex lg:justify-start lg:col-span-3">售價</div>
