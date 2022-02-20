@@ -15,8 +15,7 @@
             <div class="w-full line-clamp-3 text-md">{{cart.name}}</div>
           </div>
         </div>
-        <div
-:key="colKey('action',cart.id)" 
+        <div :key="colKey('action',cart.id)" 
           class="col-span-2 flex lg:hidden items-center justify-end"
           @click="removeItemInCart(cart.id)"
         >

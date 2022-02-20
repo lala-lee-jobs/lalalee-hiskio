@@ -5,6 +5,7 @@
       <template  v-for="course in vxFundraising">
         <course-item
           :key="course.id" 
+          :id="course.id"
           :lecturer="lecturer(course)"
           :detail="detail(course)"
           :image="course.image"
