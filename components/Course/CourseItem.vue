@@ -31,6 +31,10 @@ import CourseLecturer from './CourseLecturer.vue';
 export default {
   components: { CourseLecturer, CourseDetail },
   props: {
+    id: {
+      type: String,
+      default: undefined,
+    }, 
     image: {
       type: String,
       default: '',
@@ -58,11 +62,10 @@ export default {
   methods: {
     ...mapActions('Carts', [
       'vxAddCourse',
+      'vxGetExistCarts',
     ]),
-    addCourseInCart() {
-      console.log('addCourseInCart');
-      const {id, coupon} = this.$attrs;
-      this.vxAddCourse({id, coupon});
+    async addCourseInCart() {
+      await this.vxAddCourse({id: this.id, coupon:''});
     },
   },
 }
