@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div>小計</div>
+    <div class="text-2xl">小計</div>
     <div>{{vxSubtotal}}</div>
   </div>
 </template>

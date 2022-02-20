@@ -1,8 +1,8 @@
 export default (nuxtContext, inject) => {
-  const currency = (number) => {
+  const currency = (number, withSign = false) => {
     const parts = number.toString().split('.');
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-    return `$${parts.join('.')}`;
+    return `${withSign ? '$' : ''}${parts.join('.')}`;
   };
   inject('currency', currency);
 };

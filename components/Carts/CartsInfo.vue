@@ -1,9 +1,8 @@
 <template>
   <div v-if="hasCartItems" class="mx-auto max-w-[1170px] p-15px">
-    <div class="text-2xl">購物車</div>
-    <div class="flex justify-between">
-      <cart-list :carts="vxCartsItems"></cart-list>
-      <carts-summary></carts-summary>
+    <div class="flex flex-wrap justify-between">
+      <carts-items :carts="vxCartsItems" class="w-full lg:w-2/3"/>
+      <carts-summary class="w-full lg:w-1/3"/>
     </div>
   </div>
 </template>
@@ -12,9 +11,9 @@
 import { mapGetters, mapActions } from 'vuex';
 import { isEmpty } from 'lodash';
 import CartsSummary from './CartsSummary.vue';
-import CartList from './CartList.vue';
+import CartsItems from './CartsItems.vue';
 export default {
-  components: { CartList, CartsSummary },
+  components: { CartsItems, CartsSummary },
   computed: {
     ...mapGetters('Carts', ['vxCartsItems']),
     hasCartItems() {

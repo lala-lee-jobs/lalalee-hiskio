@@ -8,8 +8,8 @@
       <course-progress :percentage="percentage"></course-progress>
     </div>
     <div class="w-full flex items-center py-1">
-      <div class="text-sm mr-1 lg:text-lg">{{$currency($attrs.price)}}</div>
-      <del class="text-sm text-gray-500">{{$currency($attrs.fixedPrice)}}</del>
+      <div class="text-sm mr-1 lg:text-lg">{{$currency($attrs.price, true)}}</div>
+      <del class="text-sm text-gray-500">{{$currency($attrs.fixedPrice, true)}}</del>
     </div>
   </div>
 </template>

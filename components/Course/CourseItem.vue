@@ -6,7 +6,7 @@
           <div class="w-[140px] h-[76px] lg:w-[280px] lg:h-[150px] bg-cover bg-center rounded-xl lg:rounded-none" :style="courseCoverStyles"></div>
           <div class="hidden lg:flex items-end justify-end absolute bottom-0 w-full p-1">
             <div class="w-23px h-23px mr-1">
-              <img src="~/assets/icons/bookmark.svg" /> -->
+              <img src="~/assets/icons/bookmark.svg" />
             </div>
             <div class="w-23px h-23px mr-1" @click="addCourseInCart">
               <img src="~/assets/icons/add-cart.svg" />
