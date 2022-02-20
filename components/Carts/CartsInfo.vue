@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="hasCartItems" class="mx-auto max-w-[1170px] p-15px">
     <div class="text-2xl">購物車</div>
     <div class="flex justify-between">
       <cart-list :carts="vxCartsItems"></cart-list>
@@ -10,21 +10,20 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import { isEmpty } from 'lodash';
 import CartsSummary from './CartsSummary.vue';
 import CartList from './CartList.vue';
 export default {
   components: { CartList, CartsSummary },
   computed: {
     ...mapGetters('Carts', ['vxCartsItems']),
-  },
-  watch: {
-    async vxCartsItems() {
-      await this.vxGetExistCarts();
+    hasCartItems() {
+      return !isEmpty(this.vxCartsItems);
     },
   },
   async mounted() {
-    console.log('mounted');
-    await this.vxGetExistCarts();
+    const data = await this.vxGetExistCarts();
+    console.log('mounted', data);
   },
   methods: {
     ...mapActions('Carts', [

@@ -17,6 +17,7 @@
 </template>
 <script>
 import { mapState } from 'vuex';
+import { isEmpty, get } from 'lodash';
 export default {
   props: {
     fundraising: Boolean,
@@ -25,7 +26,8 @@ export default {
     ...mapState('Courses', { vxFundraising: 'fundraising' }),
     lecturer() {
       return (course) => {
-        if (course && course.lecturers && course.lecturers.length > 0) {
+        const lecturers = get(course, 'lecturers', []);
+        if (!isEmpty(lecturers)) {
           const [lecturer] = course.lecturers;
           return lecturer;
         }

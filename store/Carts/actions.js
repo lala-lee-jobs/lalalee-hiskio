@@ -21,6 +21,8 @@ export default {
       const {data: existCartsInfo} = await this.$CartsAPI.listMemberCarts();
       commit('setExistCartsInfo', existCartsInfo);
       existCarts = existCartsInfo.data.map(({id, coupon}) => ({id, coupon: ''}));
+    } else {
+      commit('clearCartsInfo');
     }
     return existCarts;
   },

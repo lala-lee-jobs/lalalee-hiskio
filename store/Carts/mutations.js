@@ -9,5 +9,11 @@ export default {
   setExistCartsInfo(state, payload) {
     const {data: items} = payload;
     state.items = items;
+  },
+  clearCartsInfo(state) {
+    state.items = [];
+    state.coupons = [];
+    state.total = 0;
+    state.subtotal = 0;
   }
 };
