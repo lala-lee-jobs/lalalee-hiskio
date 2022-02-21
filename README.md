@@ -19,6 +19,10 @@ $ npm run dev
 # 編譯&執行
 $ npm run build
 $ npm run start
+
+# 編譯&執行 Storybook
+$ npm run storybook:run
+$ npm run storybook:build
 ```
 
 ![npm run dev](/static/readme/npm-run-dev.png)
