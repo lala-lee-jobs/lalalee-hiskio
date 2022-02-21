@@ -1,73 +1,87 @@
-# lalalee-hiskio
+# Lala Lee Hisiko 前端面試測驗題 (2022)
 
-## Build Setup
+依照 [設計圖](https://www.figma.com/file/N7kbbBKWVP8PkfhReu8WGg/Untitled?nodeid=0%3A1) 及 [API 說明文件](https://app.swaggerhub.com/apis-docs/ethan0526/HiSKIO/1.0.0-oas3) 實作功能與樣式 
+
+## 使用技術規格
+
+1. Nuxt @ v2.15.8  
+2. Tailwind v2.2.19
+
+## 建置方式
 
 ```bash
-# install dependencies
+# 安裝套件
 $ npm install
 
-# serve with hot reload at localhost:3000
+# 啟動開發環境 localhost:3333
 $ npm run dev
 
-# build for production and launch server
+# 編譯&執行
 $ npm run build
 $ npm run start
-
-# generate static project
-$ npm run generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+![npm run dev](/static/readme/npm-run-dev.png)
 
-## Special Directories
+## 操作說明及擷圖
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+Step 1. 開啟 http://localhost:3000/
 
-### `assets`
+無論否是登入，首頁都會顯示募資課程資料
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
+![step-1](/static/readme/step-1.png)
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
+Step 2. 按下登入按鈕，輸入 HiSKIO 帳密 
 
-### `components`
+![step-2](/static/readme/step-2.png)
 
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
+Step 3. 登入完成後，首頁會顯示已加入購物車資料及募資課程資料
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
+![step-3](/static/readme/step-3.png)
 
-### `layouts`
+Step 4. 在募資課程資料按下加入購物車，若加入成功會出現在上方購物車清單
 
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
+![step-4](/static/readme/step-4.png)
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
+Step 5. 使用 DevTools 切換小版顯示，檢示 購物車資料及課程資料的 RWD切版設計
 
+![step-5](/static/readme/step-5.png)
 
-### `pages`
+Step 6. 按下漢堡選單，可列出手機版的Menu
 
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
+![step-6](/static/readme/step-6.png)
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
+Step 7. 手機版的Menu，有實作簡易登出功能
 
-### `plugins`
+## 專案目錄結構
 
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
+```bash
+├─ api # 呼叫後端RESTful的API
+├─ assets # 圖片、樣式、字形等要 build 的東西
+│  └─ icons # 網站使用的 ICON SVG 圖片
+├─ components # 元件放置位置 (Nuxt)
+├─ layouts # 頁面版型 (Nuxt)
+├─ mocks # Mock相關資料
+├─ pages # 頁面 - 依據資料夾產生路由 (Nuxt)
+├─ plugins # 全站JavaScript插件  (Nuxt)
+├─ static # 靜態資源  (Nuxt)
+├─ store # 狀態管理  (Nuxt)
+├─ tests # 單元測試
+├─ .editorconfig 專案編輯器寫作風格試定
+├─ .env 設定專案的環境變數
+├─ .eslintrc.js ESLint 配置設定
+├─ .gitignore 不需要Git版本控制的忽略清單
+├─ .prettierignore 不需要格式化的檔案/目錄的忽略清單
+├─ .prettierrc Prettierrc 配置設定
+├─ jsconfig.json文件 JavaScript語言服務提供的功能選項
+├─ nightwatch_globals.js Nightwatch E2E 全域設定外部檔案
+├─ nightwatch.conf.js Nightwatch E2E 配置設定
+├─ nuxt.config.js Nuxt 配置設定
+├─ package.json 專案 npm 套件 配置設定
+└─ tailwind.config.js Tailwind 配置設定
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
+```
 
-### `static`
+* Nuxt 結構目錄配置
 
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
-
-## References
-
-Figma：https://www.figma.com/file/N7kbbBKWVP8PkfhReu8WGg/Untitled?node-id=0%3A1
+  請參考 [Nuxt.js 官方文件](https://nuxtjs.org)
