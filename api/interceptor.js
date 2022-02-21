@@ -9,11 +9,27 @@ const appendMemberTokenHeader = (config) => {
   return config;
 };
 
+const RequestInterceptor= (config) => {
+  return config;
+};
+
 const RequestErrorHandler = (err) => {
+  return Promise.reject(err);
+};
+
+const ResponseInterceptor = (res) => {
+  const { status, data } = res;
+  return data;
+};
+
+const ResponseErrorHandler = (err) => {
   return Promise.reject(err);
 };
 
 export {
   appendMemberTokenHeader,
+  RequestInterceptor,
   RequestErrorHandler,
+  ResponseInterceptor,
+  ResponseErrorHandler,
 };

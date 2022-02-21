@@ -32,7 +32,7 @@ export default {
   components: { CourseLecturer, CourseDetail },
   props: {
     id: {
-      type: String,
+      type: String | Number,
       default: undefined,
     }, 
     image: {

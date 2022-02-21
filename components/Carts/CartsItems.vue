@@ -58,7 +58,7 @@ export default {
       'vxRemoveItemInCart',
     ]),
     removeItemInCart(id) {
-      console.log('removeItemInCart');
+      console.log('removeItemInCart', id);
       this.vxRemoveItemInCart(id);
     }
   }
