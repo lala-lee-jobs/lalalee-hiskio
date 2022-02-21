@@ -54,6 +54,14 @@ export default {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308
     baseURL: '/',
   },
+
+  // Nuxt-Storybook configuration: https://storybook.nuxtjs.org/api/options/
+  storybook: {
+    // Run Storybook on localhost:4000
+    port: 4000
+    // By default @nuxtjs/storybook load all stories inside ~/components. 
+    // You don't need to add this directory.
+  },
   
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
