@@ -23,6 +23,9 @@ $ npm run start
 # 編譯&執行 Storybook
 $ npm run storybook:run
 $ npm run storybook:build
+
+# Publish Storybook to chromatic
+$ npx chromatic --project-token=445f72805919
 ```
 
 ![npm run dev](/static/readme/npm-run-dev.png)
