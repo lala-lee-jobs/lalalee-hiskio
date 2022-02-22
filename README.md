@@ -9,6 +9,8 @@
 
 ## 建置方式
 
+NPM 運行環境建議使用 v14.15.0
+
 ```bash
 # 安裝套件
 $ npm install
@@ -20,7 +22,7 @@ $ npm run dev
 $ npm run build
 $ npm run start
 
-# 編譯&執行 Storybook
+# 編譯&執行 Storybook localhost:3333
 $ npm run storybook:run
 $ npm run storybook:build
 

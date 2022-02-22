@@ -1,6 +1,19 @@
+const path = require('path');
+const dotenv = require('dotenv');
+
+let fileUrl;
+switch (process.env.DEPLOY_ENV) {
+  case 'develop':
+    fileUrl = path.resolve('.env.develop');
+    break;
+  default:
+    fileUrl = path.resolve('.env.develop');
+}
+dotenv.config({ path: fileUrl });
+
 export default {
   env: {
-    apiBaseUrl: process.env.API_BASE_URL || 'https://api.hiskio.com/v2',
+    apiBaseUrl: process.env.API_BASE_URL,
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -49,6 +62,7 @@ export default {
     // https://github.com/microcipcip/cookie-universal/tree/master/packages/cookie-universal-nuxt
     'cookie-universal-nuxt',
   ],
+
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308

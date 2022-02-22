@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env DEPLOY_ENV=develop nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
@@ -39,6 +39,8 @@
     "@nuxtjs/tailwindcss": "^4.2.1",
     "chromatic": "^6.5.1",
     "chromedriver": "^96.0.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.0.0",
     "eslint": "^8.4.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-nuxt": "^3.1.0",
