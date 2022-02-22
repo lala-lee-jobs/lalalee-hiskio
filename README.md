@@ -22,7 +22,7 @@ $ npm run dev
 $ npm run build
 $ npm run start
 
-# 編譯&執行 Storybook localhost:3333
+# 編譯&執行 Storybook localhost:4000
 $ npm run storybook:run
 $ npm run storybook:build
 
@@ -31,6 +31,20 @@ $ npx chromatic --project-token=445f72805919
 ```
 
 ![npm run dev](/static/readme/npm-run-dev.png)
+
+## 環境變數設定及增加說明
+
+```bash
+  // package.json
+  "scripts": {
+    "dev": "cross-env DEPLOY_ENV=develop nuxt",
+    ...
+  }
+```
+
+在 npm run dev 時執行 `cross-env` 使用 DEPLOY_ENV=xxx(指定的環境) (eg.develop)，
+
+運行時就會讀取各自 .env.${DEPLOY_ENV}檔 所設定的參數
 
 ## 操作說明及擷圖
 
@@ -77,7 +91,7 @@ Step 7. 手機版的Menu，有實作簡易登出功能
 ├─ store # 狀態管理  (Nuxt)
 ├─ tests # 單元測試
 ├─ .editorconfig 專案編輯器寫作風格試定
-├─ .env 設定專案的環境變數
+├─ .env.develop 設定專案的環境變數(develop)
 ├─ .eslintrc.js ESLint 配置設定
 ├─ .gitignore 不需要Git版本控制的忽略清單
 ├─ .prettierignore 不需要格式化的檔案/目錄的忽略清單
