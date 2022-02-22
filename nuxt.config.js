@@ -1,6 +1,6 @@
 export default {
   env: {
-    apiBaseUrl: process.env.API_BASE_URL || '',
+    apiBaseUrl: process.env.API_BASE_URL || 'https://api.hiskio.com/v2',
   },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
