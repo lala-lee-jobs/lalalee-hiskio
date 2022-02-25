@@ -1,18 +1,22 @@
 export default {
   async vxRemoveItemInCart({state, commit, dispatch}, id) {
     // FIXME: API 回傳 500 但與 Swagger 的資料結構比對，沒有發現不同的地方 
-    const existCarts = await dispatch('vxGetExistCarts');
-    const removeCarts = existCarts
-      .filter(c => c.id === id)
-      .map(c => {
-        c.id = Number(c.id);
-        return c;
-      });
-    console.log('removeCarts', removeCarts);
-    await this.$CartsAPI.deleteCarts({
-      items: removeCarts,
-      coupons: [],
-    });
+    try {
+      const existCarts = await dispatch('vxGetExistCarts');
+      const removeCarts = existCarts
+        .filter(c => c.id === id)
+        .map(c => {
+          c.id = Number(c.id);
+          return c;
+        });
+      console.log('removeCarts', removeCarts);
+      await this.$CartsAPI.deleteCarts({
+        items: removeCarts,
+        coupons: [],
+      });      
+    } catch (error) {
+      window.$nuxt.error(error);
+    }
   },
   async vxGetExistCarts({ commit, rootGetters }) {
     let existCarts = [];

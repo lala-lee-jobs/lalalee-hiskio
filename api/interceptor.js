@@ -19,11 +19,24 @@ const RequestErrorHandler = (err) => {
 
 const ResponseInterceptor = (res) => {
   const { status, data } = res;
+  console.log('status', status);
   return data;
 };
 
-const ResponseErrorHandler = (err) => {
-  return Promise.reject(err);
+const ResponseErrorHandler = (error) => {
+  // https://stackoverflow.com/questions/50950011/axios-post-request-fails-with-error-status-code-500-internal-server-error
+  let e = error;
+  if (error.response) {
+    e = error.response.data;
+    if (error.response.data && error.response.data.error) {
+      e = error.response.data.error;
+    }
+  } else if (error.message) {
+    e = error.message;
+  } else {
+    e = "Unknown error occured";
+  }
+  return Promise.reject(e);
 };
 
 export {
